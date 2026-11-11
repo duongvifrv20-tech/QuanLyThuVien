@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package baithuchanhtuan7;
- 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -34,15 +33,15 @@ public class Test {
                 case 1:
                     Sach s = new Sach();
                     System.out.print("Mã sách: ");
-                    s.maSach = sc.nextLine().trim();
+                    s.setMaSach(sc.nextLine().trim());
                     System.out.print("Tiêu đề: ");
-                    s.tieuDe = sc.nextLine();
+                    s.setTieuDe(sc.nextLine());
                     System.out.print("Tác giả: ");
-                    s.tacGia = sc.nextLine();
+                    s.setTacGia(sc.nextLine());
                     System.out.print("Năm xuất bản: ");
-                    s.namXuatBan = Integer.parseInt(sc.nextLine().trim());
+                    s.setNamXuatBan(Integer.parseInt(sc.nextLine().trim()));
                     System.out.print("Số lượng: ");
-                    s.soLuong = Integer.parseInt(sc.nextLine().trim());
+                    s.setSoLuong(Integer.parseInt(sc.nextLine().trim()));
                     danhSach.add(s);
                     System.out.println("Đã thêm sách.");
                     break;
@@ -61,7 +60,7 @@ public class Test {
                     String maTim = sc.nextLine().trim();
                     boolean thay = false;
                     for (Sach x : danhSach) {
-                        if (x.maSach.equalsIgnoreCase(maTim)) {
+                        if (x.getMaSach().equalsIgnoreCase(maTim)) {
                             x.hienThiThongTin();
                             thay = true;
                         }
@@ -76,7 +75,7 @@ public class Test {
                     String maXoa = sc.nextLine().trim();
                     boolean daXoa = false;
                     for (int i = 0; i < danhSach.size(); i++) {
-                        if (danhSach.get(i).maSach.equalsIgnoreCase(maXoa)) {
+                        if (danhSach.get(i).getMaSach().equalsIgnoreCase(maXoa)) {
                             danhSach.remove(i);
                             daXoa = true;
                             break;
@@ -88,7 +87,7 @@ public class Test {
                 case 5:
                     int tong = 0;
                     for (Sach x : danhSach) {
-                        tong += x.soLuong;
+                        tong += x.getSoLuong();
                     }
                     System.out.println("Số đầu sách: " + danhSach.size());
                     System.out.println("Tổng số lượng: " + tong);
